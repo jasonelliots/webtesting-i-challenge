@@ -94,3 +94,15 @@ describe("fail()", function () {
 
 });
 
+describe('get()', function() {
+    it('should upate items name to include enhancement', function() {
+        const item = {
+            name: "hammer",
+            durability: 40,
+            enhancement: 18, 
+        }
+        const updatedItem = enhancer.get(item);
+        expect(updatedItem.name).toBe('[+18]hammer')
+    })
+})
+

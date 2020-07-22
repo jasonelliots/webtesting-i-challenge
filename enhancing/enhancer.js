@@ -43,6 +43,18 @@ function repair(item) {
   return { ...item}
 }
 
+// - Add a `get()` method to the `enhancer` object that takes an `item` and **returns a new item** with the `name` property modified according to the following rules:
+//   - if the enhancement level is 0, the the name is not modified.
+//   - if the enhancement level is greater than 0, change the name to include the enhancement level, preceded by a plus sign ( + ), between square brackets before the item's name. Example: the name of a "Iron Sword" enhanced to 7 would be "[+7] Iron Sword".
+
 function get(item) {
-  return { ...item };
+  if(item.enhancement > 0){
+    // item[`+${item.enhancement}${item.name}`] = item.name
+    // delete item.name 
+    item.name = `[+${item.enhancement}]${item.name}`
+    return {... item}; 
+  } else {
+    return { ...item };
+  }
+ 
 }
